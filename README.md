@@ -33,13 +33,14 @@ Atributos adicionales: numero de pata por segmento, largo.
 Métodos: mostrar que tal lento es.
 
 Museo (Clase)
-Atributos: lugar, ubicacion, num de sede
+Atributos: nombre, ubicacion, num de sede
 Métodos: dejar entrar a las personas, mostrar exibiciones, mostrar mapa, vender boletos y subscripciones. 
 
 Persona (Clase)
-Atributos: nombre, edad, tipo de subscripcion.
-Métodos: comprar boletos y/o subscribciones, ver los bichos, entrar y salir del museo.  
+Atributos: nombre, edad, tipo de subscripcion, tiene boleto. 
+Métodos: comprar boletos y/o subscribciones, entrar y salir del museo.  
 
 
+![image](https://github.com/user-attachments/assets/afc66f30-7086-45d5-b804-993093e783d7)
 
 
