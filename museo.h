@@ -7,76 +7,119 @@
 using namespace std;
 
 class Museo {
-protected:
+private:
     string nombre;
     string ubicacion;
 	int numSede;
-	int boletosDisponibles;
-	int subscripciones;
+	int boletosDisp;
+	
 
 public:
-   Museo();
-   Museo(string nombre, string ubicacion, int numSede, int boletosDisponibles, int subscripciones);
-  
 
-   
+	// Constructores 
+	Museo() : nombre(""), ubicacion(""), numSede(0), boletosDisp(0) {}
+
+    
+    Museo(string nombre, string ubicacion, int numSede, int boletosDisp, bool subscripcion, bool boleto) 
+        : nombre(nombre), ubicacion(ubicacion), numSede(numSede), boletosDisp(boletosDisp) {}
+	
 
     // Getters y setters 
-	void setNombre(string);
-    string getNombre() const {
-        return nombre;
-    }
+	//nombre 
+	string getNombre ();        
+    void setNombre(string);
+	
+	//ubicacion 
+	string getUbicacion();
 	void setUbicacion(string);
-    string getUbicacion() const {
-        return ubicacion;
-    }
 	
-	void setnumSede (int);
-    int getnumSede() const {
-        return numSede;
-    }
+	//numero de sede 
+	int getNumSede();
+	void setNumSede(int);
 	
-	void setboletosDisponibles (int);
-    int getboletosDisponibles() const {
-        return boletosDisponibles;
-    }
+	//boletos disponibles 
+	int getBoletosDisp();
+	void setBoletosDisp(int);
 	
-	void setsubscripciones (int);
-    int getsubscripciones() const {
-        return subscripciones;
-    }
+	
+	
 	
     // Métodos 
-   void entradaPersonas (bool tieneBoleto) {
-        if (tieneBoleto) {
-            cout << "Bienvenido al museo de bichos. ¡Disfruta tu visita!" << endl;
-        } else {
-            cout << "No puedes entrar sin un boleto. Por favor compra uno en la taquilla." << endl;
-        }
-    } 
+   
 	
-	void mostrarExhibiciones () const {
-		cout << "Exhibiciones disponibles en el museo" << endl;
+	void mostrarInfoMuseo (){
+		cout << "Informacion del museo:" << endl;
+		cout << "Nombre: " << nombre << endl;
+		cout << "Ubicacion: " << ubicacion << endl;
+		cout << "Numero de sede: " << numSede << endl;
 	}
 	
 	void mostrarMapa() const {
 		cout << "Mapa" << endl;
 	} 
 	
+	void mostrarExhibiciones () const {
+		cout << "Exhibiciones disponibles en el museo" << endl;
+	}
+	
+	
 	void venderBoletos(int cantidad) {
-        if (cantidad <= boletosDisponibles) {
-            boletosDisponibles -= cantidad;
-            cout << "Se han vendido " << cantidad << " boletos. Quedan " << boletosDisponibles << " boletos disponibles." << endl;
-        } else {
-            cout << "Lo siento, no hay suficientes boletos disponibles. Solo quedan " << boletosDisponibles << " boletos." << endl;
+        if (cantidad <= boletosDisp) {
+            boletosDisp -= cantidad;
+            cout << "Se han vendido " << cantidad << " boletos. Quedan " << boletosDisp << " boletos disponibles." << endl;
+        }if (cantidad >= boletosDisp) {
+			cout << "Lo siento, no hay suficientes boletos disponibles. Solo quedan " << boletosDisp << " boletos." << endl;	
+		}else {
+            cout << "Lo siento, no hay boletos" << endl; 
         }
     }
-
-	 void venderSubscripcion() {
+	
+	int subscripciones = 0; 
+	void venderSubscripcion() {
         subscripciones++;
-        cout << "Se ha vendido una nueva suscripción. Total de subscripciones: " << subscripciones << endl;
+        cout << "Se ha vendido una nueva suscripción"<< endl;
+		cout << "Numero de subscribciones:" << subscripciones <<endl; 
     }
 };
+
+
+// Definición de los métodos fuera de la clase 
+//nombre 
+string Museo::getNombre() {
+    return nombre;
+}
+
+void Museo::setNombre(string nombreBicho) {
+    nombre = nombreBicho;
+}
+
+//ubicacion 
+string Museo::getUbicacion() {
+    return ubicacion;
+}
+
+void Museo::setUbicacion(string ubiMuseo) {
+    ubicacion = ubiMuseo;
+}
+
+//numero de sede 
+int Museo::getNumSede() {
+    return numSede;
+}
+
+void Museo::setNumSede(int sedeMuseo) {
+    numSede = sedeMuseo;
+}
+
+//boletos disponibles 
+int Museo::getBoletosDisp() {
+    return boletosDisp;
+}
+
+void Museo::setBoletosDisp(int boletosMuseo) {
+    boletosDisp = boletosMuseo;
+}
+
 	
 #endif
 
