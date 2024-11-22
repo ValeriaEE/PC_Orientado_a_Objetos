@@ -6,6 +6,7 @@ using namespace std;
 #include "bicho.h"
 #include "museo.h"
 #include "persona.h"
+#include "insecto.h"
 
 int main() {
     // Crear un objeto de la clase Museo
@@ -25,12 +26,22 @@ int main() {
 	persona1.comprarBoleto(); 
 	persona1.entrarMuseo();
 
-    // Crear un objeto de la clase Bicho
 	
-	Bicho bicho1 ("Mariposa Monarca", "Danaus plexippus", "Bosques temblados", "Nectar", 01, 2);
-    cout << "\nInformacion del Bicho:" << endl;
-    bicho1.mostrarInfo();
-	bicho1.mostrarUbi();
+	Insecto mariposa(
+        "Mariposa Monarca",           // Nombre
+        "Danaus plexippus",           // Nombre científico
+        "Bosques templados",          // Hábitat
+        "Néctar",                     // Dieta
+        10.5,                         // Tamaño en cm
+        2,                            // Sección del museo
+        6,                            // Número de patas
+        "Completa"                    // Tipo de metamorfosis
+    );
+
+    // Mostrar información del insecto
+    cout << "Informacion del insecto:" << endl;
+    mariposa.mostrarInfo();
+	mariposa.mostrarUbi(); 
     
     return 0;
 }
