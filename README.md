@@ -18,19 +18,19 @@ No dejar ver la informacion ni la entrada a personas sin boleto.
 
 Bicho (Clase padre)
 Atributos: nombre científico, nombre común, hábitat, dieta,tamaño.
-Métodos: mostrar información general, mostrar donde se encuentra dentro del museo. 
+Métodos: mostrar informacion, mostrar donde se encuentra dentro del museo. 
 
 Insecto (Clase derivada de Bicho)
 Atributos adicionales: número de patas, tipo de metamorfosis.
-Métodos: mostrar ciclo de vida. 
+Métodos: mostrar informacion. 
 
 Arácnido (Clase derivada de Bicho)
 Atributos adicionales: tipo de veneno, número de ojos.
-Métodos: mostrar tipo de telaraña.
+Métodos: mostrar informacion.
 
 Miriapodo (Clase derivada de Bicho)
 Atributos adicionales: numero de pata por segmento, largo. 
-Métodos: mostrar que tal lento es.
+Métodos: mostrar informacion.
 
 Museo (Clase)
 Atributos: nombre, ubicacion, num de sede
