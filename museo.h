@@ -3,6 +3,10 @@
 
 #include <iostream>
 #include <string>
+#include "bicho.h"
+#include "insecto.h"
+#include "miriapodo.h"
+#include "aracnido.h"
 
 using namespace std;
 
@@ -10,117 +14,96 @@ class Museo {
 private:
     string nombre;
     string ubicacion;
-	int numSede;
-	int boletosDisp;
-	
+    int numSede;
+    int boletosDisp;
+
+    Insecto insectos[30];   // Arreglo para almacenar insectos
+    Aracnido aracnidos[30]; // Arreglo para almacenar arácnidos
+    Miriapodo miriapodos[30]; // Arreglo para almacenar miriápodos
+    int numInsectos;
+    int numAracnidos;
+    int numMiriapodos;
 
 public:
+    // Constructores
+    Museo() 
+        : nombre(""), ubicacion(""), numSede(0), boletosDisp(0), numInsectos(0), numAracnidos(0), numMiriapodos(0) {}
 
-	// Constructores 
-	Museo() : nombre(""), ubicacion(""), numSede(0), boletosDisp(0) {}
+    Museo(string nombre, string ubicacion, int numSede, int boletosDisp)
+        : nombre(nombre), ubicacion(ubicacion), numSede(numSede), boletosDisp(boletosDisp), numInsectos(0), numAracnidos(0), numMiriapodos(0) {}
 
-    
-    Museo(string nombre, string ubicacion, int numSede, int boletosDisp, bool subscripcion, bool boleto) 
-        : nombre(nombre), ubicacion(ubicacion), numSede(numSede), boletosDisp(boletosDisp) {}
-	
+    // Métodos para agregar bichos
+    void agregarInsecto(const Insecto& insecto) {
+        if (numInsectos < 30) {
+            insectos[numInsectos] = insecto;
+            numInsectos++;
+            cout << insecto.getNombre() << " ha sido agregado a la colección de insectos del museo." << endl;
+        } else {
+            cout << "No se pueden agregar más insectos. La colección está llena." << endl;
+        }
+    }
 
-    // Getters y setters 
-	//nombre 
-	string getNombre ();        
-    void setNombre(string);
-	
-	//ubicacion 
-	string getUbicacion();
-	void setUbicacion(string);
-	
-	//numero de sede 
-	int getNumSede();
-	void setNumSede(int);
-	
-	//boletos disponibles 
-	int getBoletosDisp();
-	void setBoletosDisp(int);
-	
-	
-	
-	
-    // Métodos 
-   
-	
-	void mostrarInfoMuseo (){
-		cout << "Informacion del museo:" << endl;
-		cout << "Nombre: " << nombre << endl;
-		cout << "Ubicacion: " << ubicacion << endl;
-		cout << "Numero de sede: " << numSede << endl;
-	}
-	
-	void mostrarMapa() const {
-		cout << "Mapa" << endl;
-	} 
-	
-	void mostrarExhibiciones () const {
-		cout << "Exhibiciones disponibles en el museo" << endl;
-	}
-	
-	
-	void venderBoletos(int cantidad) {
+    void agregarAracnido(const Aracnido& aracnido) {
+        if (numAracnidos < 30) {
+            aracnidos[numAracnidos] = aracnido;
+            numAracnidos++;
+            cout << aracnido.getNombre() << " ha sido agregado a la colección de arácnidos del museo." << endl;
+        } else {
+            cout << "No se pueden agregar más arácnidos. La colección está llena." << endl;
+        }
+    }
+
+    void agregarMiriapodo(const Miriapodo& miriapodo) {
+        if (numMiriapodos < 30) {
+            miriapodos[numMiriapodos] = miriapodo;
+            numMiriapodos++;
+            cout << miriapodo.getNombre() << " ha sido agregado a la colección de miriápodos del museo." << endl;
+        } else {
+            cout << "No se pueden agregar más miriápodos. La colección está llena." << endl;
+        }
+    }
+
+    // Métodos de getters y setters
+    string getNombre() const { return nombre; }
+    void setNombre(string nombreBicho) { nombre = nombreBicho; }
+
+    string getUbicacion() const { return ubicacion; }
+    void setUbicacion(string ubiMuseo) { ubicacion = ubiMuseo; }
+
+    int getNumSede() const { return numSede; }
+    void setNumSede(int sedeMuseo) { numSede = sedeMuseo; }
+
+    int getBoletosDisp() const { return boletosDisp; }
+    void setBoletosDisp(int boletosMuseo) { boletosDisp = boletosMuseo; }
+
+    // Métodos para el museo
+    void mostrarInfoMuseo() const {
+        cout << "Información del museo:" << endl;
+        cout << "Nombre: " << nombre << endl;
+        cout << "Ubicación: " << ubicacion << endl;
+        cout << "Número de sede: " << numSede << endl;
+    }
+
+    void mostrarMapa() const { cout << "Mapa del museo." << endl; }
+
+    void mostrarExhibiciones() const { cout << "Exhibiciones disponibles en el museo." << endl; }
+
+    void venderBoletos(int cantidad) {
         if (cantidad <= boletosDisp) {
             boletosDisp -= cantidad;
             cout << "Se han vendido " << cantidad << " boletos. Quedan " << boletosDisp << " boletos disponibles." << endl;
-        }if (cantidad >= boletosDisp) {
-			cout << "Lo siento, no hay suficientes boletos disponibles. Solo quedan " << boletosDisp << " boletos." << endl;	
-		}else {
-            cout << "Lo siento, no hay boletos" << endl; 
+        } else {
+            cout << "Lo siento, no hay suficientes boletos disponibles. Solo quedan " << boletosDisp << " boletos." << endl;
         }
     }
-	
-	int subscripciones = 0; 
-	void venderSubscripcion() {
+
+    void venderSubscripcion() {
+        static int subscripciones = 0;
         subscripciones++;
-        cout << "Se ha vendido una nueva suscripción"<< endl;
-		cout << "Numero de subscribciones:" << subscripciones <<endl; 
+        cout << "Se ha vendido una nueva suscripción. Total de suscripciones: " << subscripciones << endl;
     }
 };
 
-
-// Definición de los métodos fuera de la clase 
-//nombre 
-string Museo::getNombre() {
-    return nombre;
-}
-
-void Museo::setNombre(string nombreBicho) {
-    nombre = nombreBicho;
-}
-
-//ubicacion 
-string Museo::getUbicacion() {
-    return ubicacion;
-}
-
-void Museo::setUbicacion(string ubiMuseo) {
-    ubicacion = ubiMuseo;
-}
-
-//numero de sede 
-int Museo::getNumSede() {
-    return numSede;
-}
-
-void Museo::setNumSede(int sedeMuseo) {
-    numSede = sedeMuseo;
-}
-
-//boletos disponibles 
-int Museo::getBoletosDisp() {
-    return boletosDisp;
-}
-
-void Museo::setBoletosDisp(int boletosMuseo) {
-    boletosDisp = boletosMuseo;
-}
-
-	
 #endif
 
 	
