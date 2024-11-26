@@ -63,18 +63,20 @@ public:
         }
     }
 
-    // Métodos de getters y setters
-    string getNombre() const { return nombre; }
-    void setNombre(string nombreBicho) { nombre = nombreBicho; }
+    //  getters y setters
 
-    string getUbicacion() const { return ubicacion; }
-    void setUbicacion(string ubiMuseo) { ubicacion = ubiMuseo; }
+	string getNombre();
+	void setNombre(string);
 
-    int getNumSede() const { return numSede; }
-    void setNumSede(int sedeMuseo) { numSede = sedeMuseo; }
+	string getUbicacion();
+	void setUbicacion(string);
 
-    int getBoletosDisp() const { return boletosDisp; }
-    void setBoletosDisp(int boletosMuseo) { boletosDisp = boletosMuseo; }
+	int getNumSede();
+	void setNumSede(int);
+
+	int getBoletosDisp();
+	void setBoletosDisp(int);
+
 
     // Métodos para el museo
     void mostrarInfoMuseo() const {
