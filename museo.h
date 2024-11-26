@@ -98,7 +98,7 @@ public:
     }
 
     void venderSubscripcion() {
-        static int subscripciones = 0;
+        int subscripciones = 0;
         subscripciones++;
         cout << "Se ha vendido una nueva suscripción. Total de suscripciones: " << subscripciones << endl;
     }
