@@ -106,6 +106,39 @@ public:
     }
 };
 
+// Definición de los métodos fuera de la clase 
+//nombre
+string Museo::getNombre() {
+    return nombre;
+}
+
+void Museo::setNombre(string nombreMuseo) {
+    nombre = nombreMuseo;
+}
+
+string Museo::getUbicacion() {
+    return ubicacion;
+}
+
+void Museo::setUbicacion(string ubicacionMuseo) {
+    ubicacion = ubicacionMuseo;
+}
+int Museo::getNumSede() {
+    return numSede;
+}
+
+void Museo::setNumSede(int sedeMuseo) {
+    numSede = sedeMuseo;
+}
+int Museo::getBoletosDisp() {
+    return boletosDisp;
+}
+
+void Museo::setBoletosDisp(int boletos) {
+    boletosDisp = boletos;
+}
+
+
 #endif
 
 	
