@@ -14,32 +14,50 @@ private:
 	string tipoVeneno;  
 
 public:
-    Aracnido(string nombre, string nombreCientifico, string habitat, string dieta, float tam, int seccionMuseo, int numOjos, string tipoVeneno {}
-        : Bicho(nombre, nombreCientifico, habitat, dieta, tam, seccionMuseo), numOjos(numOjos), tipoVeneno(tipoVeneno) {}
 
-    int getNumOjos() {
-        return numOjos;
-    }
+	Aracnido() {
+		numOjos = 0; 
+		tipoVeneno = "";
+	}
 
-    void setNumOjos(int ojosAracnido) {
-        numOjos = ojosAracnido;
-    }
+	Aracnido(string nombre, string nombreCientifico, string habitat, 
+	string dieta, float tam, int seccionMuseo, int numOjos, string tipoVeneno);
+    int getNumOjos();
+	void setNumOjos(int);
+	string getTipoVeneno();
+	void setTipoVeneno(string);
+	void mostrarInfo(); 
 	
-	string getTipoVeneno() {
-        return tipoVeneno;
-    }
-
-    void setTipoVeneno(string veneno) {
-        tipoVeneno = veneno;
-    }
-	
-
-    void mostrarInfo() {
-        Bicho::mostrarInfo();
-		cout << "Numero de ojos: " << numOjos << endl; 
-		cout << "Tipo de veneno: " << tipoVeneno << endl;
-        
-    }
 };
+
+Aracnido::Aracnido(string nombre, string nombreCientifico, string habitat, 
+string dieta, float tam, int seccionMuseo, int numOjos, string tipoVeneno)
+    : Bicho(nombre, nombreCientifico, habitat, dieta, tam, seccionMuseo),
+	numOjos(numOjos), 
+	tipoVeneno(tipoVeneno) {}
+
+int Aracnido::getNumOjos() {
+    return numOjos;
+}
+
+void Aracnido::setNumOjos(int ojosAracnido) {
+    numOjos = ojosAracnido;
+}
+	
+string Aracnido::getTipoVeneno() {
+    return tipoVeneno;
+}
+
+void Aracnido::setTipoVeneno(string veneno) {
+	tipoVeneno = veneno;
+}
+	
+
+void Aracnido::mostrarInfo() {
+	Bicho::mostrarInfo();
+	cout << "Numero de ojos: " << numOjos << endl; 
+	cout << "Tipo de veneno: " << tipoVeneno << endl;
+}
+
 
 #endif

@@ -16,10 +16,10 @@ protected:
 
 public:
     // Constructores
-    Persona() : nombre(""), edad(0), tieneBoleto(false), tieneSubscripcion(false), tipoSubscripcion("") {}
 
-    Persona(string nombre, int edad, bool tieneBoleto, bool tieneSubscripcion, string tipoSubscripcion)
-        : nombre(nombre), edad(edad), tieneBoleto(tieneBoleto), tieneSubscripcion(tieneSubscripcion), tipoSubscripcion(tipoSubscripcion) {}
+	Persona(string nombre, int edad, bool tieneBoleto,
+	bool tieneSubscripcion, string tipoSubscripcion);
+   
 
     // Getters y setters
     string getNombre();
@@ -43,8 +43,16 @@ public:
     void comprarBoleto();
     void comprarSuscripcion(string);
 };
+//constructores
+Persona::Persona(string nombre, int edad, bool tieneBoleto, 
+bool tieneSubscripcion, string tipoSubscripcion)
+    : nombre(nombre),
+	edad(edad),
+	tieneBoleto(tieneBoleto),
+	tieneSubscripcion(tieneSubscripcion),
+	tipoSubscripcion(tipoSubscripcion) {}
 
-// Métodos fuera de la clase
+// getters y setters 
 string Persona::getNombre() {
     return nombre;
 }
@@ -84,12 +92,12 @@ string Persona::getTipoSubscripcion() {
 void Persona::setTipoSubscripcion(string subscripcionTipo) {
     tipoSubscripcion = subscripcionTipo;
 }
-
+//Metodos 
 void Persona::entrarMuseo() {
     if (tieneBoleto || tieneSubscripcion) {
         cout << nombre << " ha entrado al museo." << endl;
     } else {
-        cout << nombre << " no puede entrar al museo. Necesita un boleto o una suscripción." << endl;
+        cout << nombre << " no puede entrar al museo. Necesita un boleto o una suscripcion." << endl;
     }
 }
 
@@ -105,7 +113,7 @@ void Persona::comprarBoleto() {
 void Persona::comprarSuscripcion(string tipo) {
     tieneSubscripcion = true;
     tipoSubscripcion = tipo; // Guardar el tipo de suscripción
-    cout << nombre << " ha adquirido una suscripción " << tipoSubscripcion << "." << endl;
+    cout << nombre << " ha adquirido una suscripcion " << tipoSubscripcion << "." << endl;
 }
 
 #endif

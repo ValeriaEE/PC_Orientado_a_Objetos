@@ -16,15 +16,23 @@ private:
 	int seccionMuseo;
 
 public:
+//costructores
+	Bicho() {
+		nombre = ""; 
+		nombreCientifico = "";
+		habitat = "";
+		dieta = "";
+		tam = 0.0;
+		seccionMuseo = 0;
+		}
 
-	
-	 Bicho() : nombre(""), nombreCientifico(""), habitat(""), dieta(""), tam(0.0), seccionMuseo(0) {}
-
-    // Constructor parametrizado
-    Bicho(string nombre, string nombreCientifico, string habitat, string dieta, float tam, int seccionMuseo) 
-        : nombre(nombre), nombreCientifico(nombreCientifico), habitat(habitat), dieta(dieta), tam(tam), seccionMuseo(seccionMuseo) {}
-	
-
+	Bicho(string nombre,
+	string nombreCientifico,
+	string habitat,
+	string dieta, 
+	float tam, 
+	int seccionMuseo);
+    
 	//prototipos de los getters y setters 
 	//nombre 
 	string getNombre ();        
@@ -50,20 +58,18 @@ public:
     int getSeccionMuseo();               
     void setSeccionMuseo(int);           
 
+	void mostrarInfo();
+	void mostrarUbi();
    
-    // Métodos 
-    void mostrarInfo()  {
-        cout << "Nombre: " << nombre << endl;
-        cout << "Nombre Cientifico: " << nombreCientifico << endl;
-        cout << "Habitat: " << habitat << endl;
-        cout << "Dieta: " << dieta << endl;
-        cout << "Tamano: " << tam << " cm" << endl;
-    }
-
-    void mostrarUbi() const {
-        cout << "El bicho " << nombre << " se encuentra en la seccion " << seccionMuseo << " del museo." << endl;
-    }
+    
+    
 };
+// Constructor parametrizado
+Bicho::Bicho(string nombre, string nombreCientifico,
+ string habitat, string dieta, float tam, int seccionMuseo) 
+	: nombre(nombre), nombreCientifico(nombreCientifico), 
+	habitat(habitat), dieta(dieta), tam(tam), seccionMuseo(seccionMuseo) {}
+	
 
 // Definición de los métodos fuera de la clase 
 //nombre
@@ -115,12 +121,22 @@ void Bicho::setTam(float tamBicho) {
 int Bicho::getSeccionMuseo() {
     return seccionMuseo;
 }
-
+//metodos 
 void Bicho::setSeccionMuseo(int seccionBicho) {
     seccionMuseo = seccionBicho;
 }
 
- 
+void Bicho::mostrarInfo()  {
+	cout << "Nombre: " << nombre << endl;
+	cout << "Nombre Cientifico: " << nombreCientifico << endl;
+	cout << "Habitat: " << habitat << endl;
+	cout << "Dieta: " << dieta << endl;
+	cout << "Tamano: " << tam << " cm" << endl;
+}
+
+void Bicho::mostrarUbi() {
+	cout << "El bicho " << nombre << " se encuentra en la seccion " << seccionMuseo << " del museo." << endl;
+}
 
 #endif  // BICHO_H_
 
