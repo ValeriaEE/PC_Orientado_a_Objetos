@@ -41,6 +41,4 @@ Atributos: nombre, edad, tipo de subscripcion, tiene boleto.
 Métodos: comprar boletos y/o subscribciones, entrar y salir del museo.  
 
 
-![image](https://github.com/user-attachments/assets/afc66f30-7086-45d5-b804-993093e783d7)
-
 
